@@ -29,17 +29,21 @@ project.ext {
 
     //引用类库的版本号
     dependVersion = [
-            kotlin_version : '1.2.51',
-            support_version: '27.1.1'
+            kotlin_version     : '1.2.51',
+            support_version    : '27.1.1',
+            databinding_version: '3.1.0'
     ]
 
     //*************************类库maven地址**************************
-    kotlin_base = [kotlin_stdlib_jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$dependVersion.kotlin_version"]
+    kotlin_base = [kotlin_stdlib_jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$dependVersion.kotlin_version"
+    ]
     supportLibs = [
             design      : "com.android.support:design:$dependVersion.support_version",
             appcompat_v7: "com.android.support:appcompat-v7:$dependVersion.support_version",
             constraint  : 'com.android.support.constraint:constraint-layout:1.1.3']
+    databindingLibs = [databinding: "com.android.databinding:compiler:$dependVersion.databinding_version"]
     //********************项目依赖列表**********************
     kotlinDeps = [kotlin_base.values()]
     supportDeps = [supportLibs.values()]
+    databindingDeps = [databindingLibs.values()]
 }
