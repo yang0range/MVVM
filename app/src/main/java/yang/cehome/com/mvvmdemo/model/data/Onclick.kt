@@ -1,4 +1,4 @@
-package yang.cehome.com.mvvmdemo.model
+package yang.cehome.com.mvvmdemo.model.data
 
 /**
  * @author yangzc

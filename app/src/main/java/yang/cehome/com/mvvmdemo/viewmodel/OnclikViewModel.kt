@@ -1,7 +1,7 @@
 package yang.cehome.com.mvvmdemo.viewmodel
 
 import android.databinding.ObservableField
-import yang.cehome.com.mvvmdemo.model.Onclick
+import yang.cehome.com.mvvmdemo.model.data.Onclick
 
 /**
  * @author yangzc

@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 apply from: "${rootProject.rootDir}/config.gradle"
 
 android {
-    compileSdkVersion project.ext.compileSdkVersion
-    buildToolsVersion project.ext.buildToolsVersion
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion project.ext.minSdkVersion
@@ -31,14 +31,26 @@ android {
     dataBinding {
         enabled = true
     }
+
+    kapt {
+        generateStubs = true
+    }
+
+    android {
+        compileOptions {
+            sourceCompatibility 1.8
+            targetCompatibility 1.8
+        }
+    }
+
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project.ext.kotlinDeps
     implementation project.ext.supportDeps
-    kapt project.ext.databindingDeps
-//    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation project.ext.networkDeps
+    implementation project.ext.rxDeps
+    annotationProcessor  project.ext.databindingDeps
+    testImplementation 'junit:junit:4.12'
 }
