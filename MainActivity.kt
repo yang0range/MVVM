@@ -11,9 +11,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import yang.cehome.com.mvvmdemo.R
 import yang.cehome.com.mvvmdemo.databinding.ActivityMainBinding
 import yang.cehome.com.mvvmdemo.model.data.Onclick
-import yang.cehome.com.mvvmdemo.model.remote.WeatherService
+import yang.cehome.com.mvvmdemo.model.local.AppDatabase
+import yang.cehome.com.mvvmdemo.model.remote.PostService
+import yang.cehome.com.mvvmdemo.model.repository.PostRepo
 import yang.cehome.com.mvvmdemo.viewmodel.OnclikViewModel
-import yang.cehome.com.mvvmdemo.viewmodel.WeatherViewModel
+import yang.cehome.com.mvvmdemo.viewmodel.PostViewModel
 
 
 
@@ -24,7 +26,7 @@ import yang.cehome.com.mvvmdemo.viewmodel.WeatherViewModel
 class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mViewMode: OnclikViewModel
-    private lateinit var mViewMode2: WeatherViewModel
+    private lateinit var mViewMode2: PostViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,15 +44,18 @@ class MainActivity : AppCompatActivity() {
                 .build()
 
         val remote = Retrofit.Builder()
-                .baseUrl("http://www.weather.com.cn")
+                .baseUrl("http://www.kuaidi100.com")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
-                .build().create(WeatherService::class.java)
+                .build().create(PostService::class.java)
+        val local= AppDatabase.getInstance(applicationContext).PostDao()
+        val  repo = PostRepo(remote, local)
 
-
-        mViewMode2 = WeatherViewModel(remote)
+        ////ViewModel2
+        mViewMode2 = PostViewModel(repo)
         mBinding.vm = mViewMode
-        mBinding.remote = mViewMode2
+        ////binding
+        mBinding.post = mViewMode2
     }
 }

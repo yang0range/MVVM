@@ -31,7 +31,7 @@ project.ext {
     dependVersion = [
             kotlin_version     : '1.2.51',
             support_version    : '27.1.1',
-            databinding_version: '3.2.0-alpha10',
+            databinding_version: '3.1.4',
             retrofit2_version  : '2.3.0',
             gson_version       : '2.8.5',
             rxandroid_version  : '2.1.0',
@@ -66,9 +66,11 @@ project.ext {
 
 
     roomLib = [room_runtime: "android.arch.persistence.room:runtime:$dependVersion.room_version",
-               room_rxjave2: "android.arch.persistence.room:rxjava2:$dependVersion.room_version",
-               room: "android.arch.persistence.room:compiler:$dependVersion.room_version"
+               room_rxjave2: "android.arch.persistence.room:rxjava2:$dependVersion.room_version"
+
     ]
+    room = [ room: "android.arch.persistence.room:compiler:$dependVersion.room_version"]
+
 
     //********************项目依赖列表**********************
     kotlinDeps = [kotlin_base.values()]
@@ -78,4 +80,5 @@ project.ext {
     rxDeps = [rxandroid.values(), rxjava.values()]
     stethoDeps = [stetho.values()]
     roomDeps = [roomLib.values()]
+    roomDep = [room.values()]
 }
