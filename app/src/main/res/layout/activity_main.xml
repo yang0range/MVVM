@@ -10,8 +10,10 @@
         type="yang.cehome.com.mvvmdemo.viewmodel.OnclikViewModel" />
 
         <variable
-            name="remote"
-            type="yang.cehome.com.mvvmdemo.viewmodel.WeatherViewModel" />
+            name="post"
+            type="yang.cehome.com.mvvmdemo.viewmodel.PostViewModel" />
+
+
     </data>
 
     <LinearLayout
@@ -36,7 +38,7 @@
                 android:id="@+id/tv_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/bt_onclick"
+                android:layout_below="@id/bt_onclick"
                 android:layout_marginBottom="20dp"
                 android:text="@{vm.info}"
                 android:textSize="16sp"
@@ -54,7 +56,7 @@
                 android:id="@+id/bt_load"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{()->remote.loadWeather()}"
+                android:onClick="@{()->post.loadpost()}"
                 android:text="网络获取" />
 
             <TextView
@@ -63,10 +65,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/bt_load"
                 android:layout_marginBottom="50dp"
-                android:text="@{remote.weatherinfo}"
+                android:text="@{post.postinfo}"
                 android:textSize="16sp"
                 />
 
         </RelativeLayout>
+
     </LinearLayout>
 </layout>

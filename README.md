@@ -9,5 +9,3 @@ mvvm架构的学习
 [MVVM框架的搭建（二）——项目搭建](https://www.jianshu.com/p/6a5a9803d03b)
 
 [MVVM框架的搭建（三）——网络请求](https://www.jianshu.com/p/df2bde94c0bd)
-
-

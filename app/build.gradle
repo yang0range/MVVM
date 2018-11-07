@@ -51,6 +51,9 @@ dependencies {
     implementation project.ext.supportDeps
     implementation project.ext.networkDeps
     implementation project.ext.rxDeps
-    annotationProcessor  project.ext.databindingDeps
+    implementation project.ext.stethoDeps
+    implementation project.ext.roomDeps
+    kapt project.ext.roomDep
+    kapt project.ext.databindingDeps
     testImplementation 'junit:junit:4.12'
 }
