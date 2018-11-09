@@ -53,6 +53,7 @@ dependencies {
     implementation project.ext.rxDeps
     implementation project.ext.stethoDeps
     implementation project.ext.roomDeps
+    implementation project.ext.okhttpDep
     kapt project.ext.roomDep
     kapt project.ext.databindingDeps
     testImplementation 'junit:junit:4.12'

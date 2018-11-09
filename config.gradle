@@ -37,7 +37,8 @@ project.ext {
             rxandroid_version  : '2.1.0',
             rxjava_version     : '2.2.2',
             stetho_version     : '1.5.0',
-            room_version       : '1.1.1'
+            room_version       : '1.1.1',
+            okhttp_version     : '3.11.0'
     ]
 
     //*************************类库maven地址**************************
@@ -66,11 +67,13 @@ project.ext {
 
 
     roomLib = [room_runtime: "android.arch.persistence.room:runtime:$dependVersion.room_version",
-               room_rxjave2: "android.arch.persistence.room:rxjava2:$dependVersion.room_version"
+               room_rxjave2: "android.arch.persistence.room:rxjava2:$dependVersion.room_version",
 
     ]
-    room = [ room: "android.arch.persistence.room:compiler:$dependVersion.room_version"]
+    room = [room: "android.arch.persistence.room:compiler:$dependVersion.room_version"]
 
+    okhttpLibs = [okhttp   : "com.squareup.okhttp3:okhttp:$dependVersion.okhttp_version",
+                  okhttplog: "com.squareup.okhttp3:logging-interceptor:$dependVersion.okhttp_version"]
 
     //********************项目依赖列表**********************
     kotlinDeps = [kotlin_base.values()]
@@ -81,4 +84,5 @@ project.ext {
     stethoDeps = [stetho.values()]
     roomDeps = [roomLib.values()]
     roomDep = [room.values()]
+    okhttpDep = [okhttpLibs.values()]
 }
