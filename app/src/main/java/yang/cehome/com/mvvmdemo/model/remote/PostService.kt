@@ -7,7 +7,7 @@ import yang.cehome.com.mvvmdemo.model.local.dao.PostEntity
 /**
  * @author yangzc
  *	@data 2018/9/11 18:13
- *	@desc WeatherService
+ *	@desc PostService
  *
  */
 interface PostService {

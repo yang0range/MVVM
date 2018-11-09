@@ -9,7 +9,7 @@ import yang.cehome.com.mvvmdemo.model.repository.PostRepo
 /**
  * @author yangzc
  *	@data 2018/11/7 10:26
- *	@desc
+ *	@desc  PostViewModel
  *
  */
 class PostViewModel(private val repo: PostRepo) {

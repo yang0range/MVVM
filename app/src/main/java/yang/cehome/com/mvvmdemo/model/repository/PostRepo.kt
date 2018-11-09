@@ -6,12 +6,15 @@ import yang.cehome.com.mvvmdemo.model.remote.PostService
 /**
  * @author yangzc
  *	@data 2018/11/6 11:55
- *	@desc WeatherRepo
+ *	@desc PostRepo
  *
  */
 class PostRepo  constructor(private val remote: PostService, private val local: PostDao){
-    //
+    //首先查看本地数据库是否有数据
    fun getPostInfo() = local.getPostInfo()
-           .onErrorResumeNext { remote.getPostInfo().doOnSuccess { local.inserttPost(it) }
+           .onErrorResumeNext {
+               //本地数据库不存在，会抛出会抛出EmptyResultSetException
+               //转而进行获取网络数据，成功后保存在数据库
+               remote.getPostInfo().doOnSuccess { local.inserttPost(it) }
            }
 }
