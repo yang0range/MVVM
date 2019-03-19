@@ -13,3 +13,7 @@ mvvm架构的学习
 [MVVM的数据持久化（一）——ROOM的集成](https://www.jianshu.com/p/0159a5f1c557)
 
 [MVVM的数据持久化（二）——ROOM的使用](https://www.jianshu.com/p/9e0129c4fbd4)
+
+#### 欢迎关注公共号 
+###### 会有更多收获
+###    朝阳杨大爷 
